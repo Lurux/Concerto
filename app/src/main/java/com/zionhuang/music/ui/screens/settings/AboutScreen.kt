@@ -3,7 +3,6 @@ package com.zionhuang.music.ui.screens.settings
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -55,8 +54,6 @@ fun AboutScreen(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(4.dp))
-
         Image(
             painter = painterResource(R.drawable.launcher_monochrome),
             contentDescription = null,
@@ -64,19 +61,14 @@ fun AboutScreen(
             modifier = Modifier
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.surfaceColorAtElevation(NavigationBarDefaults.Elevation))
-                .clickable { }
         )
 
-        Row(
-            verticalAlignment = Alignment.Top,
-        ) {
-            Text(
-                text = "InnerTune",
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
-            )
-        }
+        Text(
+            text = stringResource(R.string.app_name),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
+        )
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -127,7 +119,35 @@ fun AboutScreen(
         Spacer(Modifier.height(4.dp))
 
         Text(
-            text = "by Zion Huang",
+            text = "by Lurux",
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.secondary
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        Row {
+            IconButton(
+                onClick = { uriHandler.openUri("https://github.com/lurux/Concerto") }
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.github),
+                    contentDescription = null
+                )
+            }
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Text(
+                text = stringResource(R.string.based_on),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
+        )
+
+        Text(
+            text = stringResource(R.string.original_app),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.secondary
         )
@@ -162,7 +182,6 @@ fun AboutScreen(
                 )
             }
         }
-
     }
 
     TopAppBar(

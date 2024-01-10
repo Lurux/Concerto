@@ -7,7 +7,7 @@
         android:shortcutShortLabel="@string/search">
         <intent
             android:targetClass="com.zionhuang.music.MainActivity"
-            android:targetPackage="com.zionhuang.music.debug"
+            android:targetPackage="com.lurux.concerto.debug"
             android:action="com.zionhuang.music.action.SEARCH" />
     </shortcut>
     <shortcut
@@ -17,7 +17,7 @@
         android:shortcutShortLabel="@string/songs">
         <intent
             android:targetClass="com.zionhuang.music.MainActivity"
-            android:targetPackage="com.zionhuang.music.debug"
+            android:targetPackage="com.lurux.concerto.debug"
             android:action="com.zionhuang.music.action.SONGS" />
     </shortcut>
     <shortcut
@@ -27,7 +27,7 @@
         android:shortcutShortLabel="@string/albums">
         <intent
             android:targetClass="com.zionhuang.music.MainActivity"
-            android:targetPackage="com.zionhuang.music.debug"
+            android:targetPackage="com.lurux.concerto.debug"
             android:action="com.zionhuang.music.action.ALBUMS" />
     </shortcut>
     <shortcut
@@ -37,7 +37,7 @@
         android:shortcutShortLabel="@string/playlists">
         <intent
             android:targetClass="com.zionhuang.music.MainActivity"
-            android:targetPackage="com.zionhuang.music.debug"
+            android:targetPackage="com.lurux.concerto.debug"
             android:action="com.zionhuang.music.action.PLAYLISTS" />
     </shortcut>
 </shortcuts>

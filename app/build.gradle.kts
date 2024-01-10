@@ -21,7 +21,7 @@ android {
     compileSdk = 33
     buildToolsVersion = "30.0.3"
     defaultConfig {
-        applicationId = "com.zionhuang.music"
+        applicationId = "com.lurux.concerto"
         minSdk = 24
         targetSdk = 33
         versionCode = 19

@@ -25,20 +25,19 @@ fun InnerTuneTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     pureBlack: Boolean = false,
     themeColor: Color = DefaultThemeColor,
-    backgroundColorTint: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     val context = LocalContext.current
-    val colorScheme = remember(darkTheme, pureBlack, themeColor, backgroundColorTint) {
+    val colorScheme = remember(darkTheme, pureBlack, themeColor) {
         if (themeColor == DefaultThemeColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (darkTheme) dynamicDarkColorScheme(context)
                 .pureBlack(pureBlack)
-                .backgroundColorTint(pureBlack, backgroundColorTint)
+                .backgroundColorTint(pureBlack)
             else dynamicLightColorScheme(context)
         } else {
             if (darkTheme) Scheme.dark(themeColor.toArgb()).toColorScheme()
                 .pureBlack(pureBlack)
-                .backgroundColorTint(pureBlack, backgroundColorTint)
+                .backgroundColorTint(pureBlack)
             else Scheme.light(themeColor.toArgb()).toColorScheme()
         }
     }
@@ -99,10 +98,9 @@ fun ColorScheme.pureBlack(apply: Boolean) =
     ) else this
 
 fun ColorScheme.backgroundColorTint(
-    pureBlack: Boolean,
-    backgroundColorTint: Boolean
+    pureBlack: Boolean
 ): ColorScheme = copy(
-    surfaceTint = (pureBlack && backgroundColorTint).takeIf { it }?.let { Color.Black } ?: surfaceTint
+    surfaceTint = (pureBlack).takeIf { it }?.let { Color.Black } ?: surfaceTint
 )
 
 val ColorSaver = object : Saver<Color, Int> {

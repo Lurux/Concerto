@@ -197,7 +197,7 @@ fun Queue(
                         value = sleepTimerValue,
                         onValueChange = { sleepTimerValue = it },
                         valueRange = 5f..120f,
-                        steps = 120 - 5 - 1,
+                        steps = (120 - 5) / 5 - 1,
                     )
 
                     OutlinedButton(
